@@ -5,7 +5,7 @@ $(document).ready(function() {
         let tabla = document.querySelector('#tabla')
         tabla.innerHTML = ''
         $.ajax({
-            url: "http://localhost:8080/listarproductos",
+            url: "https://productsstore.azurewebsites.net/listarproductos",
             type: "GET",
             datatype: "JSON",
             success: function(respuesta) {
@@ -30,7 +30,7 @@ $(document).ready(function() {
     $('#buscar').on('click', function() {
         let id = ($('#id2').val());
         $.ajax({
-            url: "http://localhost:8080/buscarproducto/" + id,
+            url: "https://productsstore.azurewebsites.net/buscarproducto/" + id,
             type: "GET",
             datatype: "JSON",
             success: function(respuesta) {
@@ -46,7 +46,7 @@ $(document).ready(function() {
     $('#eliminar').on('click', function() {
         let categoria = $('#id3').val();
         $.ajax({
-            url: "http://localhost:8080/eliminarproducto/" + categoria,
+            url: "https://productsstore.azurewebsites.net/eliminarproducto/" + categoria,
             type: "DELETE",
             dataType: "JSON",
             success: function(respuesta) {
@@ -71,7 +71,7 @@ $(document).ready(function() {
                 console.log(datosEnvio)
         
                 $.ajax({
-                    url: "http://localhost:8080/actualizarproductos/" + referencia, 
+                    url: "https://productsstore.azurewebsites.net/actualizarproductos/" + referencia, 
                     type: "PUT",
                     data: datosEnvio,
                     contentType: "application/JSON",
