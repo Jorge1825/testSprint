@@ -1,9 +1,11 @@
 package com.example.ejemplo01.controller;
+
 import com.example.ejemplo01.entidad.EntidadP;
 import com.example.ejemplo01.service.EntidadPServicio;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -17,6 +19,12 @@ public class EntidaPControlador {
 
     public EntidaPControlador(EntidadPServicio productoServicio) {
         this.productoServicio = productoServicio;
+    }
+
+    @GetMapping("/index")
+    public ModelAndView index() {
+        ModelAndView modelAndView = new ModelAndView("index");
+        return modelAndView;
     }
 
     @GetMapping("/listarproductos")
@@ -34,7 +42,6 @@ public class EntidaPControlador {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
 
     @DeleteMapping("/eliminarproducto/{categoria}")
     public ResponseEntity<String> eliminarproducto(@PathVariable String categoria) {
@@ -56,11 +63,10 @@ public class EntidaPControlador {
             productoExistente.setPreciounitario(entidadP.getPreciounitario());
             productoExistente.setCantidad(entidadP.getCantidad());
 
-
             EntidadPServicio.actualizarproductos(productoExistente);
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    }
+}
