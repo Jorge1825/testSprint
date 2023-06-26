@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /* @CrossOrigin(origins = "http://localhost:8080")  */
-@CrossOrigin(origins = "https://productsstore.azurewebsites.net") 
+@CrossOrigin(origins = "https://productstore.azurewebsites.net") 
 
 @Service
 public class EntidadPServicio {
